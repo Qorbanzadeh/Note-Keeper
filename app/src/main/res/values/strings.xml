@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">دفترچه یادداشت</string>
+    <string name="take_note">یک یادداشت اضافه کنید...</string>
+    <string name="card_title_hint">Title</string>
+
+    <string name="title_hint">موضوع</string>
+    <string name="note_hint">متن</string>
+    <string name="edited_time">ایجاد شده در تاریخ:&#160;</string>
+</resources>

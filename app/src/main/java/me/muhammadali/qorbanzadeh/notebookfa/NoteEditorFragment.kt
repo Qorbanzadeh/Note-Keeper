@@ -1,0 +1,87 @@
+package me.muhammadali.qorbanzadeh.notebookfa
+
+import android.content.Context
+import android.os.Bundle
+import android.util.Log
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.navArgs
+import me.muhammadali.qorbanzadeh.notebookfa.databinding.FragmentNoteEditorBinding
+import me.muhammadali.qorbanzadeh.notebookfa.utilities.InjectorUtils
+import me.muhammadali.qorbanzadeh.notebookfa.utilities.NoteEditorViewModelFactory
+import me.muhammadali.qorbanzadeh.notebookfa.viewmodels.NoteEditorFragmentViewModel
+
+class NoteEditorFragment : Fragment() {
+
+    private val args by navArgs<NoteEditorFragmentArgs>()
+    private val isNewNote: Boolean by lazy { args.noteId == -1L }
+    private val viewModel: NoteEditorFragmentViewModel by lazy {
+        //        InjectorUtils.provideNoteEditorViewModelFactory(requireContext(), args.noteId)
+//            .create(NoteEditorFragmentViewModel::class.java)
+        ViewModelProviders.of(
+            this,
+            NoteEditorViewModelFactory(
+                InjectorUtils.getNoteRepository(
+                    requireContext()
+                ), args.noteId
+            )
+        )
+            .get(NoteEditorFragmentViewModel::class.java)
+    }
+    private lateinit var binding: FragmentNoteEditorBinding
+
+//    companion object {
+//        fun newInstance() = NoteEditorFragment()
+//    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+
+        Log.i(this.javaClass.simpleName, "onCreateView() id= ${args.noteId} $isNewNote")
+
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_note_editor,
+            container,
+            false
+        )
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this@NoteEditorFragment
+
+        return binding.root
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i(this.javaClass.simpleName, "call saveNote()")
+        hideKeyboard()
+        viewModel.saveNote()
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        Log.i(this.javaClass.simpleName, "onDetach()")
+
+    }
+
+
+    private fun hideKeyboard() {
+        val inputMethodManager = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+
+        val currentFocusedView = requireActivity().currentFocus
+        if (currentFocusedView != null) {
+            inputMethodManager.hideSoftInputFromWindow(
+                currentFocusedView.windowToken,
+                InputMethodManager.HIDE_NOT_ALWAYS
+            )
+        }
+    }
+
+}
