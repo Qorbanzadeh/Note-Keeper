@@ -11,7 +11,7 @@ on local db.
 - Coroutines
 
 ### App screen shot
-<img src="https://github.com/brown-kaew/android-KeepNote/blob/master/Screenshot/0.jpg?raw=true" alt="Note lists" width="240" />  <img src="https://github.com/brown-kaew/android-KeepNote/blob/master/Screenshot/1.jpg?raw=true" alt="Note lists" width="240" />
+<img src="https://github.com/brown-kaew/android-KeepNote/blob/master/Screenshot/0.jpg?raw=true" alt="1" width="240" />  <img src="https://github.com/brown-kaew/android-KeepNote/blob/master/Screenshot/0.jpg?raw=true" alt="1" width="240" />
 
-<img src="https://github.com/brown-kaew/android-KeepNote/blob/master/Screenshot/2.jpg?raw=true" alt="Note lists" width="240" />  <img src="https://github.com/brown-kaew/android-KeepNote/blob/master/Screenshot/DeleteNote.png?raw=true" alt="Note lists" width="240" />
+<img src="https://github.com/brown-kaew/android-KeepNote/blob/master/Screenshot/1.jpg?raw=true" alt="2" width="240" />  <img src="https://github.com/brown-kaew/android-KeepNote/blob/master/Screenshot/1.jpg?raw=true" alt="2" width="240" />
 
