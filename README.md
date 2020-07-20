@@ -2,7 +2,7 @@
 ### Simple fake google keep notes
 
 Its just a simple app to keep your notes
-on local db.
+on local storage.
 
 #### Dependencies
 - ViewModel
