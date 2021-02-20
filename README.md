@@ -1,8 +1,8 @@
 # android-KeepNote
-### Simple fake google keep notes
+### Simple note app like google keep
 
-Its just a simple app to keep your notes
-on local storage.
+It's just a simple app to keep your notes
+on the local storage.
 
 #### Dependencies
 - ViewModel
